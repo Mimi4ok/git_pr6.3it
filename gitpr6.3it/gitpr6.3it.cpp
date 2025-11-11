@@ -2,19 +2,34 @@
 //
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-int SumSquares(int* a, const int size) {
+int* createArray(int n) {
+    int* a = new int[n];
+    for (int i = 0; i < n; i++)
+        a[i] = i + 1;
+    return a;
+}
+
+void printArray(int* a, int n) {
+    cout << "Array: ";
+    for (int i = 0; i < n; i++)
+        cout << setw(4) << a[i];
+    cout << endl;
+}
+
+int SumSquares(int* a, int n) {
     int sum = 0;
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < n; i++)
         sum += a[i] * a[i];
     return sum;
 }
 
 template <typename T>
-T SumSquares(T* a, const int size) {
+T SumSquares(T* a, int n) {
     T sum = T();
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < n; i++)
         sum += a[i] * a[i];
     return sum;
 }
@@ -22,13 +37,17 @@ T SumSquares(T* a, const int size) {
 int main() {
     const int n = 10;
 
-    int a[n] = { 1,2,3,4,5,6,7,8,9,10 };
+    int* a = createArray(n);
     double b[n] = { 1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9,10.0 };
 
-    cout << "SumSquares(a, n) = " << SumSquares(a, n) << endl;
-    cout << "SumSquares<int>(a, n) = " << SumSquares<int>(a, n) << endl;
-    cout << "SumSquares<double>(b, n) = " << SumSquares<double>(b, n) << endl;
+    cout << fixed << setprecision(2);
 
+    printArray(a, n);
+    cout << "Sum of squares (int): " << SumSquares(a, n) << endl;
+    cout << "Sum of squares (template<int>): " << SumSquares<int>(a, n) << endl;
+    cout << "Sum of squares (template<double>): " << SumSquares<double>(b, n) << endl;
+
+    delete[] a;
     return 0;
 }
 

@@ -4,32 +4,31 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace UnitTestSumSquaresIter
+namespace UnitTest1
 {
-    TEST_CLASS(UnitTestSumSquaresIter)
+    TEST_CLASS(UnitTest1)
     {
     public:
 
         TEST_METHOD(TestSumSquaresInt)
         {
-            int a[] = { 1, 2, 3, 4, 5 };
-            const int n = 5;
-
-            int expected = 1 * 1 + 2 * 2 + 3 * 3 + 4 * 4 + 5 * 5;
-            int result = SumSquares(a, n);
-
-            Assert::AreEqual(expected, result);
+            int a[5] = { 1, 2, 3, 4, 5 };
+            int result = SumSquares(a, 5);
+            Assert::AreEqual(55, result);
         }
 
-        TEST_METHOD(TestSumSquaresDouble)
+        TEST_METHOD(TestSumSquaresTemplateInt)
         {
-            double a[] = { 1.1, 2.2, 3.3 };
-            const int n = 3;
+            int a[3] = { 2, 3, 4 };
+            int result = SumSquares<int>(a, 3);
+            Assert::AreEqual(29, result);
+        }
 
-            double expected = 1.1 * 1.1 + 2.2 * 2.2 + 3.3 * 3.3;
-            double result = SumSquares<double>(a, n);
-
-            Assert::AreEqual(expected, result, 1e-9);
+        TEST_METHOD(TestSumSquaresTemplateDouble)
+        {
+            double a[3] = { 1.0, 2.0, 3.0 };
+            double result = SumSquares<double>(a, 3);
+            Assert::AreEqual(14.0, result, 1e-9);
         }
     };
 }

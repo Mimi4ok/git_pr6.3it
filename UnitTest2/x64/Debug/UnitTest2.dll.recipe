@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\university\gitpr6.3it\x64\Debug\gitpr6.3it.exe</FullPath>
+      <FullPath>D:\university\pr6.3it\gitpr6.3it\x64\Debug\gitpr6.3it.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\university\gitpr6.3it\x64\Debug\UnitTest2.dll</FullPath>
+      <FullPath>D:\university\pr6.3it\gitpr6.3it\x64\Debug\UnitTest2.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
